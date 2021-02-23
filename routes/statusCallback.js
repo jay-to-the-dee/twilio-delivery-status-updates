@@ -1,8 +1,7 @@
 module.exports = (req, res) => {
-  const messageSid = req.body.MessageSid;
-  const messageStatus = req.body.MessageStatus;
+  const { MessageSid, MessageStatus } = req.body;
 
-  console.log(`SID: ${messageSid}, Status: ${messageStatus}`);
+  console.log(`SID: ${MessageSid}, Status: ${MessageStatus}`);
 
   res.sendStatus(200);
 };
