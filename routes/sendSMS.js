@@ -14,5 +14,5 @@ module.exports = (req, res) => {
       statusCallback: `${CALLBACK_BASE}/statusCallback`,
       to,
     })
-    .then((message) => res.json({ message }));
+    .then((message) => res.json( message ));
 };
