@@ -7,17 +7,15 @@ module.exports = (req, res) => {
 
   client.messages
     .create({
-      // body: "McAvoy or Stewart? These timelines can get so confusing.",
       body,
       from: "+1 207 337 9878",
-      //  statusCallback: 'https://abc1234.free.beeceptor.com',
       statusCallback: `${CALLBACK_BASE}/statusCallback`,
       to,
     })
     .then((message) => res.json( message ))
     .catch((error) => {
       console.error( JSON.stringify(error) );
-      res.status(error.status).send(error.moreInfo);
+      res.status(error.status).send( error.moreInfo );
     });
     ;
 };
