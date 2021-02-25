@@ -1,18 +1,19 @@
-const http = require("http")
-const express = require("express")
+require("dotenv").config();
 
-const routes = require("./routes/index");
+const http = require("http");
+const express = require("express");
 
 const app = express();
 
-const cors = require('cors')
+const cors = require("cors");
 app.use(cors());
-
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use('/', express.static('../twilio-delivery-status-updates-frontend/dist'))
+app.use("/", express.static("../twilio-delivery-status-updates-frontend/dist"));
 
-app.use("/", routes);
+const server = app.listen(3000, () => {
+  console.log(`Express is running on port ${server.address().port}`);
+});
 
-module.exports = app;
+app.use("/", require("./routes/index")(server) );
