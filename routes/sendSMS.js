@@ -8,19 +8,18 @@
 const {
   TWILIO_ACCOUNT_SID,
   TWILIO_AUTH_TOKEN,
-  CALLBACK_BASE,
-  FROM_NUMBER,
+  FROM_NUMBER
 } = process.env;
 const client = require("twilio")(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN);
 
 module.exports = (req, res) => {
-  const { to, body } = req.body;
+  const { to, body, callbackHost } = req.body;
 
   client.messages
     .create({
       body,
       from: FROM_NUMBER,
-      statusCallback: `${CALLBACK_BASE}/statusCallback`,
+      statusCallback: `${callbackHost}/statusCallback`,
       to,
     })
     .then((message) => res.json(message))
