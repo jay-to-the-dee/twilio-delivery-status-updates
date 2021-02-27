@@ -1,4 +1,4 @@
-require("dotenv").config(); //Put secrets & CALLBACK_BASE in .env
+require("dotenv").config(); //Put secrets, FROM_NUMBER & CALLBACK_BASE in .env
 
 const express = require("express");
 const app = express();
