@@ -1,7 +1,6 @@
-require("dotenv").config();
+require("dotenv").config(); //Put secrets & CALLBACK_BASE in .env
 
 const express = require("express");
-
 const app = express();
 
 //Prevents CORS from stopping the show if the frontend is hosted separately to the backend (useful in frontend development in particular)
