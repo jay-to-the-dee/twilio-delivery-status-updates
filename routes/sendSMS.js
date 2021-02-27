@@ -5,7 +5,12 @@
  *  Callback must be accessible via the internet so localhost won't work
  *  unless you use with something like ngrok to expose it to the internet. :)
  */
-const { TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, CALLBACK_BASE } = process.env;
+const {
+  TWILIO_ACCOUNT_SID,
+  TWILIO_AUTH_TOKEN,
+  CALLBACK_BASE,
+  FROM_NUMBER,
+} = process.env;
 const client = require("twilio")(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN);
 
 module.exports = (req, res) => {
@@ -14,7 +19,7 @@ module.exports = (req, res) => {
   client.messages
     .create({
       body,
-      from: "+1 207 337 9878",
+      from: FROM_NUMBER,
       statusCallback: `${CALLBACK_BASE}/statusCallback`,
       to,
     })
