@@ -16,6 +16,8 @@ const server = app.listen(3000, () => {
   console.log(`Express is running on port ${server.address().port}`);
 });
 
+const io = require("./io")(server); //Set up SocketIO on this server also
+
 //Assign static file serving for frontend and API / SocketIO routes
 app.use("/", express.static("../twilio-delivery-status-updates-frontend/dist"));
-app.use("/", require("./routes/index")(server) );
+app.use("/", require("./routes/index")(io) );
