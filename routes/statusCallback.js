@@ -5,6 +5,6 @@ module.exports = (io) => { //We need the SocketIO object passing to emit updates
     console.log(`SID: ${MessageSid}, Status: ${MessageStatus}`);
     io.emit("SmsStatusUpdate", { MessageSid, MessageStatus }); //Emit the status update callback back to browser via SocketIO
 
-    res.sendStatus(200);
+    res.sendStatus(200); //Tell Twilio we got their callback update OK 
   };
 };
