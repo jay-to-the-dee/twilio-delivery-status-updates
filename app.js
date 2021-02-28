@@ -16,7 +16,7 @@ const server = app.listen(3000, () => {
   console.log(`Express is running on port ${server.address().port}`);
 });
 
-const io = require("./setupSocketIO")(server); //Set up SocketIO on this server also
+const io = require("./setupSocket.io")(server); //Set up SocketIO on this server also
 //Assign API & SocketIO callback routes
 app.use("/", require("./routes/index")(io) );
 //Assign static file serving for Vue frontend serving
