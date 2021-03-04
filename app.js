@@ -3,7 +3,7 @@ require("dotenv").config(); //Put secrets, FROM_NUMBER & CALLBACK_BASE in .env
 const express = require("express");
 const app = express();
 
-//Prevents CORS from stopping the show if the frontend is hosted separately to the backend (useful in frontend development in particular)
+//Prevents CORS from stopping the show if the frontend is hosted separately to the backend (useful in the frontend development in particular)
 const cors = require("cors");
 app.use(cors());
 
